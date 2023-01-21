@@ -18,9 +18,10 @@ public class Hooks {
     public void setup() {
         getDriver();
     }
+
     @AfterStep
-    public void captureExceptionImage(Scenario scenario){
-        if(scenario.isFailed()){
+    public void captureExceptionImage(Scenario scenario) {
+        if (scenario.isFailed()) {
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
             String timeMilliSeconds = Long.toString(timestamp.getTime());
 

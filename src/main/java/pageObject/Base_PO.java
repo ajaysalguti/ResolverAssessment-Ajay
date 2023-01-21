@@ -32,10 +32,12 @@ public class Base_PO {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(element)).sendKeys(textToType);
     }
+
     public void waitForWebElementAndClick(WebElement element) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         wait.until(ExpectedConditions.elementToBeClickable(element)).click();
     }
+
     public void waitForAlert_And_ValidateText(String text) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         wait.until(ExpectedConditions.alertIsPresent());
@@ -64,29 +66,34 @@ public class Base_PO {
             return false;
         }
     }
+
     public boolean webElementIsDisabled(WebElement element) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
-            return !wait.until(ExpectedConditions.visibilityOf(element)).isEnabled();
+        return !wait.until(ExpectedConditions.visibilityOf(element)).isEnabled();
     }
+
     public String waitForElementAndGetText(WebElement element) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         return wait.until(ExpectedConditions.visibilityOf(element)).getText();
     }
+
     public String waitForElementAndGetText(By by) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         return wait.until(ExpectedConditions.visibilityOfElementLocated(by)).getText();
     }
+
     //This will scroll the page till the element is found
-    public void visibilityOfElement(WebElement element ) {
+    public void visibilityOfElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
 
-    public int getNumberOfItems(By by){
+    public int getNumberOfItems(By by) {
         WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(Global_Vars.DEFAULT_EXPLICIT_TIMEOUT));
         List<WebElement> itemsList = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
         return itemsList.size();
     }
+
     public void assertText(String actualText, String expectedText) {
         Assert.assertEquals(actualText, expectedText);
     }

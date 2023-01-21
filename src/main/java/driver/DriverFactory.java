@@ -15,7 +15,7 @@ public class DriverFactory {
     private static ThreadLocal<WebDriver> webDriver = new ThreadLocal<>();
 
     // To get instance of the webDriver variable using getDriver method
-    public static WebDriver getDriver()  {
+    public static WebDriver getDriver() {
         if (webDriver.get() == null) {
             webDriver.set(createDriver());
         }
@@ -44,6 +44,7 @@ public class DriverFactory {
         driver.manage().window().maximize();
         return driver;
     }
+
     private static String getBrowserType() {
         String browserType = null;
         try {

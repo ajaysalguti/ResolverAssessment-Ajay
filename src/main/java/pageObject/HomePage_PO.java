@@ -60,6 +60,7 @@ public class HomePage_PO extends Base_PO {
         Assert.assertTrue(WaitUntilWebElementIsVisible(emailAddress_TextField));
         Assert.assertTrue(webElementIsEnabled(emailAddress_TextField));
     }
+
     /*
        @author aSalguti
        Assert if the password field is visible and enabled
@@ -68,6 +69,7 @@ public class HomePage_PO extends Base_PO {
         Assert.assertTrue(WaitUntilWebElementIsVisible(password_TextField));
         Assert.assertTrue(webElementIsEnabled(password_TextField));
     }
+
     /*
        @author aSalguti
        Assert if the SignIn button is visible and enabled
@@ -76,6 +78,7 @@ public class HomePage_PO extends Base_PO {
         Assert.assertTrue(WaitUntilWebElementIsVisible(signin_Button));
         Assert.assertTrue(webElementIsEnabled(signin_Button));
     }
+
     /*
        @author aSalguti
        @params Email Address
@@ -84,6 +87,7 @@ public class HomePage_PO extends Base_PO {
     public void setEmailAddress(String emailAddress) {
         sendkeys(emailAddress_TextField, emailAddress);
     }
+
     /*
     @author aSalguti
     @params password
@@ -96,6 +100,7 @@ public class HomePage_PO extends Base_PO {
     public void clickOn_Signin_Button() {
         waitForWebElementAndClick(signin_Button);
     }
+
     /*
     @author aSalguti
     @params password
@@ -116,7 +121,11 @@ public class HomePage_PO extends Base_PO {
         String listItemBadgeValue = waitForElementAndGetText(getDriver().findElement(By.cssSelector(".col-sm-4 .list-group li:nth-child(" + itemNumber + ") .badge")));
         Assert.assertEquals(parseInt(listItemBadgeValue), badgeValue);
     }
-
+/*
+    @author aSalguti
+    @params expected title
+    Assert the section title with the expected text
+       */
 
     public void validateTheSectionTitle(String title) {
         switch (title) {
@@ -164,11 +173,19 @@ public class HomePage_PO extends Base_PO {
         getDriver().findElement(By.cssSelector(".container #test-3-div .dropdown .dropdown-menu a:nth-child(" + nthValue[1] + ")")).click();
     }
 
+    /*
+        @author aSalguti
+        Perform assertion to check the button is enabled
+           */
     public boolean validateButtonIsEnabled() {
         Assert.assertTrue(webElementIsEnabled(firstButtonElement));
         return webElementIsEnabled(firstButtonElement);
     }
 
+    /*
+        @author aSalguti
+        Perform assertion to check the button is disabled
+           */
     public boolean validateButtonIsDisabled() {
         Assert.assertTrue(webElementIsDisabled(secondButtonElement));
         return webElementIsDisabled(secondButtonElement);
@@ -182,8 +199,13 @@ public class HomePage_PO extends Base_PO {
         assertText(waitForElementAndGetText(button5Alert).trim(), successMessage);
     }
 
+    /*
+        @author aSalguti
+        @params cell row number and column number
+        Perform assertion to check the button is enabled
+           */
     public String getTextFromTest6Table(int rowNumber, int columnNumber) {
-        return waitForElementAndGetText(By.cssSelector("#test-6-div > div > table > tbody > tr:nth-child(" + (columnNumber + 1) + ") td:nth-child(" + (rowNumber + 1) + ")"));
+        return waitForElementAndGetText(By.cssSelector("#test-6-div > div > table > tbody > tr:nth-child(" + (rowNumber + 1) + ") td:nth-child(" + (columnNumber + 1) + ")"));
     }
 
 }

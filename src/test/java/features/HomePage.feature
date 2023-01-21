@@ -35,7 +35,7 @@ Background: User navigate to resolver html page
 
   Scenario: Access Resolver Assessment - Home page and validate Test3 Options dropdown
     Then User verify that the Section title is "Test 6"
-    And User retrieve the value located at coordinates 2,2
-    Then User assert the value of cell is "Ventosanzap" at 2,2
+    And User retrieve the value located at coordinates at 2 row number, 2 column number
+    Then User assert the value of cell is "Ventosanzap" at 2 row number, 2 column number
 
 
